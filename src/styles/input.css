@@ -1,0 +1,439 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #010204;
+  --foreground: #f8fafc;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  
+  /* Tactical Quad-Spectrum Color Tokens: Crimson Red + Electric Cyan/Blue + Obsidian Void Black + Stark Crisp White */
+  --cyan-laser: #00f0ff;
+  --cyan-glow: rgba(0, 240, 255, 0.35);
+  --sapphire-core: #2563eb;
+  --sapphire-glow: rgba(37, 99, 235, 0.35);
+  --crimson-threat: #f43f5e;
+  --crimson-core: #e11d48;
+  --crimson-glow: rgba(225, 29, 72, 0.40);
+  --void-black: #010204;
+  --obsidian-dark: #050711;
+  --pure-white: #ffffff;
+  --emerald-trust: #10b981;
+  --emerald-glow: rgba(16, 185, 129, 0.3);
+  --amber-warning: #f59e0b;
+}
+
+html,
+body {
+  background-color: #010204;
+  color: #f8fafc;
+  font-family: var(--font-sans);
+  overflow-x: hidden !important;
+  max-width: 100vw;
+  width: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 120Hz / 144Hz ProMotion Hardware Acceleration & Layout Containment */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.gpu-accelerated,
+.react-flow__viewport,
+.react-flow__pane,
+.react-flow__node {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}
+
+.contain-paint {
+  contain: layout paint style;
+}
+
+.touch-fluid {
+  touch-action: pan-y pinch-zoom;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-momentum-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x pinch-zoom;
+}
+
+/* React Flow mobile touch pass-through & controls cleanup */
+.react-flow__pane {
+  touch-action: pan-y !important;
+}
+
+.react-flow__controls {
+  display: none !important;
+}
+
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+}
+
+/* Custom Tactical Cybernetic Quad-Spectrum Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #010204;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f0ff 0%, #2563eb 40%, #ffffff 50%, #e11d48 100%);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #38bdf8 0%, #3b82f6 40%, #ffffff 50%, #fb7185 100%);
+}
+
+/* ==========================================================================
+   Stealth Obsidian Void & Quad-Spectrum Canvas Architecture
+   ========================================================================== */
+.bg-deep-void {
+  background-color: #010204;
+  background-image: 
+    /* Top Deep Quantum Cyan Core */
+    radial-gradient(ellipse 70% 45% at 65% -5%, rgba(6, 182, 212, 0.16), rgba(37, 99, 235, 0.10), transparent 70%),
+    /* Left Crimson Threat Flare */
+    radial-gradient(circle 750px at 5% 30%, rgba(225, 29, 72, 0.13), rgba(244, 63, 94, 0.05), transparent 60%),
+    /* Right Quantum Sapphire Glow */
+    radial-gradient(circle 700px at 95% 45%, rgba(37, 99, 235, 0.11), rgba(6, 182, 212, 0.06), transparent 60%),
+    /* Center Crisp Specular White Horizon */
+    radial-gradient(ellipse 80% 30% at 50% 15%, rgba(255, 255, 255, 0.025), transparent 75%),
+    /* Bottom Obsidian Orbit */
+    radial-gradient(ellipse 80% 50% at 50% 110%, rgba(11, 17, 34, 0.9), transparent 70%);
+  background-attachment: fixed;
+}
+
+/* Tactical Precision Dot Matrix Grid with Dual Cyan & Crimson Nodes */
+.bg-tactical-grid {
+  background-image: 
+    radial-gradient(rgba(0, 240, 255, 0.12) 1px, transparent 1px),
+    radial-gradient(rgba(244, 63, 94, 0.08) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 32px 32px, 64px 64px, 32px 32px, 32px 32px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 30%, #000 40%, transparent 95%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 30%, #000 40%, transparent 95%);
+}
+
+/* Cybernetic Perimeter Glow Flow */
+@keyframes laser-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes radar-pulse {
+  0%, 100% { opacity: 0.20; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.03); }
+}
+
+.animate-radar-sweep {
+  animation: radar-sweep 14s linear infinite;
+}
+
+.animate-radar-pulse {
+  animation: radar-pulse 6s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: radar-sweep 90s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: radar-sweep 70s linear infinite reverse;
+}
+
+/* High-Precision Laser Perimeter Ingestion Halo (Quad-Spectrum: Cyan + Blue + White + Crimson) */
+.halo-glow-border {
+  position: relative;
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, #00f0ff 0%, #2563eb 25%, #ffffff 50%, #e11d48 75%, #00f0ff 100%);
+  background-size: 300% 300%;
+  animation: laser-flow 8s ease infinite;
+  padding: 1.5px;
+  box-shadow: 0 0 35px -5px rgba(0, 240, 255, 0.35), 0 0 45px -10px rgba(225, 29, 72, 0.30);
+}
+
+.halo-glow-border-inner {
+  border-radius: calc(1.25rem - 1.5px);
+  background: #04060e;
+}
+
+/* Tactical Shimmer Button */
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-btn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+  transform: rotate(30deg);
+  animation: shimmer-pass 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer-pass {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  35%, 100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* Unified Chromatic Status Badges with Precise Optical Luminance */
+.badge-chroma-cyan {
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.40);
+  color: #22d3ee;
+  box-shadow: 0 0 14px rgba(6, 182, 212, 0.25);
+}
+
+.badge-chroma-crimson {
+  background: rgba(225, 29, 72, 0.14);
+  border: 1px solid rgba(225, 29, 72, 0.45);
+  color: #fb7185;
+  box-shadow: 0 0 16px rgba(225, 29, 72, 0.35);
+}
+
+.badge-chroma-white {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.25);
+}
+
+.badge-chroma-violet {
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.40);
+  color: #818cf8;
+  box-shadow: 0 0 14px rgba(99, 102, 241, 0.20);
+}
+
+.badge-chroma-emerald {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.40);
+  color: #34d399;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.25);
+}
+
+.badge-chroma-amber {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.40);
+  color: #fbbf24;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.20);
+}
+
+.badge-chroma-rose {
+  background: rgba(244, 63, 94, 0.14);
+  border: 1px solid rgba(244, 63, 94, 0.45);
+  color: #fb7185;
+  box-shadow: 0 0 16px rgba(244, 63, 94, 0.30);
+}
+
+/* Tactical Cybernetic Cards */
+.cyber-card {
+  background: #050813;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.75);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cyber-card:hover {
+  border-color: rgba(0, 240, 255, 0.45);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.90);
+  transform: translateY(-2px);
+}
+
+.cyber-card-threat {
+  background: #08050e;
+  border: 1px solid rgba(225, 29, 72, 0.20);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.75);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cyber-card-threat:hover {
+  border-color: rgba(225, 29, 72, 0.55);
+  box-shadow: 0 0 25px rgba(225, 29, 72, 0.25), 0 8px 32px rgba(0, 0, 0, 0.90);
+  transform: translateY(-2px);
+}
+
+/* Custom Scrollbar for Inner Panels */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(3, 5, 12, 0.5);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(0, 240, 255, 0.4) 0%, rgba(225, 29, 72, 0.4) 100%);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(0, 240, 255, 0.7) 0%, rgba(225, 29, 72, 0.7) 100%);
+}
+
+/* React Flow Node Base Styles */
+.react-flow {
+  direction: ltr;
+}
+.react-flow__renderer {
+  z-index: 0;
+}
+.react-flow__viewport {
+  transform-origin: 0 0;
+}
+.react-flow__nodes,
+.react-flow__edges {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.react-flow__nodes {
+  z-index: 3;
+}
+.react-flow__node {
+  position: absolute;
+  user-select: none;
+  pointer-events: all;
+  transform-origin: 50% 50%;
+}
+.react-flow__node:active {
+  cursor: grabbing;
+}
+.react-flow__handle {
+  position: absolute;
+  pointer-events: none;
+  min-width: 5px;
+  min-height: 5px;
+  width: 6px;
+  height: 6px;
+  background: #00f0ff;
+  border: 1px solid #020409;
+  border-radius: 100%;
+}
+.react-flow__handle-top {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.react-flow__handle-bottom {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+.react-flow__edge {
+  position: absolute;
+  pointer-events: visibleStroke;
+}
+.react-flow__edge-path {
+  stroke: rgba(0, 240, 255, 0.35);
+  stroke-width: 1.5;
+  fill: none;
+}
+.react-flow__pane {
+  cursor: grab;
+}
+.react-flow__pane:active {
+  cursor: grabbing;
+}
+
+/* ==========================================================================
+   Cyber Daemon Predator & Sovereign Threat Architecture
+   ========================================================================== */
+.chamfer-cyber {
+  clip-path: polygon(
+    0 6px, 6px 0,
+    calc(100% - 6px) 0, 100% 6px,
+    100% calc(100% - 6px), calc(100% - 6px) 100%,
+    6px 100%, 0 calc(100% - 6px)
+  );
+}
+
+.chamfer-cyber-lg {
+  clip-path: polygon(
+    0 12px, 12px 0,
+    calc(100% - 12px) 0, 100% 12px,
+    100% calc(100% - 12px), calc(100% - 12px) 100%,
+    12px 100%, 0 calc(100% - 12px)
+  );
+}
+
+.daemon-card-predator {
+  position: relative;
+  background: radial-gradient(ellipse 100% 100% at 50% 0%, #060b18 0%, #020308 100%);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.daemon-card-predator:hover {
+  border-color: rgba(244, 63, 94, 0.60);
+  box-shadow: 0 0 35px rgba(244, 63, 94, 0.25), 0 8px 36px rgba(0, 0, 0, 0.95);
+}
+
+.daemon-visor-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f1f5f9;
+  background: rgba(3, 7, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 2px solid #00f0ff;
+  border-right: 2px solid #f43f5e;
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.15);
+  backdrop-filter: blur(12px);
+}
+
+@keyframes optic-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 4px #f43f5e);
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+    filter: drop-shadow(0 0 12px #ff003b);
+  }
+}
+
+.animate-optic-pulse {
+  animation: optic-pulse 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
